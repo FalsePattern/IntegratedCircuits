@@ -38,6 +38,10 @@ namespace IntegratedCircuits
             return CreateMultiIOChip(0, 0, bits, digits * 4, false, false, true, false, "", "", "BIN", "BCD", false, false, false, false);
         }
 
+        public static CustomBuilder CreateDiv(int bits)
+        {
+            return CreateMultiIOChip(bits, bits, bits, 1, false, false, true, true, "A", "B", "O", "DivByZero", false, false, false, true);
+        }
 
         public static CustomBuilder CreateInc(int bits)
         {

@@ -4,6 +4,7 @@ using IntegratedCircuits.Components.Add;
 using IntegratedCircuits.Components.And;
 using IntegratedCircuits.Components.Bcd;
 using IntegratedCircuits.Components.Dcb;
+using IntegratedCircuits.Components.Div;
 using IntegratedCircuits.Components.Inc;
 using IntegratedCircuits.Components.Mul;
 using IntegratedCircuits.Components.Nand;
@@ -27,6 +28,7 @@ namespace IntegratedCircuits1B
             CreateAnds();
             CreateBcds();
             CreateDcbs();
+            CreateDivs();
             CreateIncs();
             CreateMuls();
             CreateNands();
@@ -57,6 +59,14 @@ namespace IntegratedCircuits1B
             CreateDcb<Dcb3D>(3, 10);
             CreateDcb<Dcb4D>(4, 14);
             CreateDcb<Dcb5D>(5, 17);
+        }
+
+        internal void CreateDivs()
+        {
+            CreateDiv<Div4B>(4);
+            CreateDiv<Div8B>(8);
+            CreateDiv<Div12B>(12);
+            CreateDiv<Div16B>(16);
         }
 
         internal void CreateMuls()
@@ -127,6 +137,11 @@ namespace IntegratedCircuits1B
         {
 
             ComponentRegistry.CreateNew<T>("dcb" + digits, "BCD to BIN " + digits + " Digit", BuilderHelper.CreateDcb(digits, bits));
+        }
+
+        internal void CreateDiv<T>(int bits) where T : DivBase
+        {
+            ComponentRegistry.CreateNew<T>("div" + bits, "DIV " + bits + " Bit", BuilderHelper.CreateDiv(bits));
         }
 
         internal void CreateInc<T>(int bits) where T : IncBase

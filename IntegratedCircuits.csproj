@@ -74,6 +74,11 @@
     <Compile Include="Components\Dcb\Dcb3D.cs" />
     <Compile Include="Components\Dcb\Dcb2D.cs" />
     <Compile Include="Components\Dcb\DcbBase.cs" />
+    <Compile Include="Components\Div\Div16B.cs" />
+    <Compile Include="Components\Div\Div12B.cs" />
+    <Compile Include="Components\Div\Div8B.cs" />
+    <Compile Include="Components\Div\Div4B.cs" />
+    <Compile Include="Components\Div\DivBase.cs" />
     <Compile Include="Components\Inc\IncBase.cs" />
     <Compile Include="Components\Inc\Inc16B.cs" />
     <Compile Include="Components\Inc\Inc12B.cs" />
