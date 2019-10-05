@@ -52,6 +52,18 @@
   <ItemGroup>
     <Compile Include="BuilderHelper.cs" />
     <Compile Include="CommonData.cs" />
+    <Compile Include="Components\Float\Adder.cs" />
+    <Compile Include="Components\Float\BinOp.cs" />
+    <Compile Include="Components\Float\FloatToInt.cs" />
+    <Compile Include="Components\Float\IntToFloat.cs" />
+    <Compile Include="Components\Float\Divider.cs" />
+    <Compile Include="Components\Float\FloatUtil.cs" />
+    <Compile Include="Components\Float\Moduler.cs" />
+    <Compile Include="Components\Float\Multiplier.cs" />
+    <Compile Include="Components\Float\Negator.cs" />
+    <Compile Include="Components\Float\Subtractor.cs" />
+    <Compile Include="FloatCircuitLoader.cs" />
+    <Compile Include="IntegerCircuitLoader.cs" />
     <Compile Include="Components\Add\Add16B.cs" />
     <Compile Include="Components\Add\Add12B.cs" />
     <Compile Include="Components\Add\Add8B.cs" />
