@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14651BE4-2D90-45BF-977D-2A158EC41510}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntegratedCircuits</RootNamespace>
+    <AssemblyName>IntegratedCircuits</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>D:\Games\TUNG v0.2.6\The Ultimate Nerd Game_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PiTung">
+      <HintPath>D:\Games\TUNG v0.2.6\The Ultimate Nerd Game_Data\Managed\PiTung.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\Games\TUNG v0.2.6\The Ultimate Nerd Game_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuilderHelper.cs" />
+    <Compile Include="CommonData.cs" />
+    <Compile Include="Components\Add\Add16B.cs" />
+    <Compile Include="Components\Add\Add12B.cs" />
+    <Compile Include="Components\Add\Add8B.cs" />
+    <Compile Include="Components\Add\Add4B.cs" />
+    <Compile Include="Components\Add\Add1B.cs" />
+    <Compile Include="Components\Add\AddBase.cs" />
+    <Compile Include="Components\And\And16B.cs" />
+    <Compile Include="Components\And\And12B.cs" />
+    <Compile Include="Components\And\And1B.cs" />
+    <Compile Include="Components\And\And8B.cs" />
+    <Compile Include="Components\And\And4B.cs" />
+    <Compile Include="Components\And\AndBase.cs" />
+    <Compile Include="Components\Bcd\Bcd16B.cs" />
+    <Compile Include="Components\Bcd\Bcd12B.cs" />
+    <Compile Include="Components\Bcd\Bcd8B.cs" />
+    <Compile Include="Components\Bcd\Bcd4B.cs" />
+    <Compile Include="Components\Bcd\BcdBase.cs" />
+    <Compile Include="Components\Dcb\Dcb5D.cs" />
+    <Compile Include="Components\Dcb\Dcb4D.cs" />
+    <Compile Include="Components\Dcb\Dcb3D.cs" />
+    <Compile Include="Components\Dcb\Dcb2D.cs" />
+    <Compile Include="Components\Dcb\DcbBase.cs" />
+    <Compile Include="Components\Inc\IncBase.cs" />
+    <Compile Include="Components\Inc\Inc16B.cs" />
+    <Compile Include="Components\Inc\Inc12B.cs" />
+    <Compile Include="Components\Inc\Inc8B.cs" />
+    <Compile Include="Components\Inc\Inc4B.cs" />
+    <Compile Include="Components\Inc\Inc1B.cs" />
+    <Compile Include="Components\Mul\Mul16B.cs" />
+    <Compile Include="Components\Mul\Mul12B.cs" />
+    <Compile Include="Components\Mul\Mul8B.cs" />
+    <Compile Include="Components\Mul\Mul4B.cs" />
+    <Compile Include="Components\Mul\MulBase.cs" />
+    <Compile Include="Components\Nand\Nand12B.cs" />
+    <Compile Include="Components\Nand\Nand16B.cs" />
+    <Compile Include="Components\Nand\Nand1B.cs" />
+    <Compile Include="Components\Nand\Nand4B.cs" />
+    <Compile Include="Components\Nand\Nand8B.cs" />
+    <Compile Include="Components\Nand\NandBase.cs" />
+    <Compile Include="Components\Ram\Ram12B.cs" />
+    <Compile Include="Components\Ram\Ram16B.cs" />
+    <Compile Include="Components\Ram\Ram1B.cs" />
+    <Compile Include="Components\Ram\Ram4B.cs" />
+    <Compile Include="Components\Ram\Ram8B.cs" />
+    <Compile Include="Components\Ram\RamBase.cs" />
+    <Compile Include="Components\TwoInputGateBase.cs" />
+    <Compile Include="Components\Xor\Xor12B.cs" />
+    <Compile Include="Components\Xor\Xor16B.cs" />
+    <Compile Include="Components\Xor\Xor1B.cs" />
+    <Compile Include="Components\Xor\Xor4B.cs" />
+    <Compile Include="Components\Xor\Xor8B.cs" />
+    <Compile Include="Components\Xor\XorBase.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
