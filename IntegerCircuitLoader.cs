@@ -37,6 +37,7 @@ namespace IntegratedCircuits
             CreateAdd<Add8B>(8);
             CreateAdd<Add12B>(12);
             CreateAdd<Add16B>(16);
+            CreateAdd<Add32B>(32);
         }
 
         internal void CreateBcds()
@@ -45,6 +46,7 @@ namespace IntegratedCircuits
             CreateBcd<Bcd8B>(8, 3);
             CreateBcd<Bcd12B>(12, 4);
             CreateBcd<Bcd16B>(16, 5);
+            CreateBcd<Bcd32B>(32, 10);
         }
 
         internal void CreateDcbs()
@@ -53,6 +55,11 @@ namespace IntegratedCircuits
             CreateDcb<Dcb3D>(3, 10);
             CreateDcb<Dcb4D>(4, 14);
             CreateDcb<Dcb5D>(5, 17);
+            CreateDcb<Dcb6D>(6, 20);
+            CreateDcb<Dcb7D>(7, 24);
+            CreateDcb<Dcb8D>(8, 27);
+            CreateDcb<Dcb9D>(9, 30);
+            CreateDcb<Dcb10D>(10, 34);
         }
 
         internal void CreateDivs()
@@ -61,6 +68,7 @@ namespace IntegratedCircuits
             CreateDiv<Div8B>(8);
             CreateDiv<Div12B>(12);
             CreateDiv<Div16B>(16);
+            CreateDiv<Div32B>(32);
         }
 
         internal void CreateMuls()
@@ -69,6 +77,7 @@ namespace IntegratedCircuits
             CreateMul<Mul8B>(8);
             CreateMul<Mul12B>(12);
             CreateMul<Mul16B>(16);
+            CreateMul<Mul32B>(32);
         }
 
         internal void CreateIncs()
@@ -78,6 +87,7 @@ namespace IntegratedCircuits
             CreateInc<Inc8B>(8);
             CreateInc<Inc12B>(12);
             CreateInc<Inc16B>(16);
+            CreateInc<Inc32B>(32);
         }
 
         internal void CreateRams()
@@ -87,6 +97,7 @@ namespace IntegratedCircuits
             CreateRam<Ram8B>(8);
             CreateRam<Ram12B>(12);
             CreateRam<Ram16B>(16);
+            CreateRam<Ram32B>(32);
         }
 
         internal void CreateAnds()
@@ -96,6 +107,7 @@ namespace IntegratedCircuits
             Create2InputGate<And8B>("and", 8);
             Create2InputGate<And12B>("and", 12);
             Create2InputGate<And16B>("and", 16);
+            Create2InputGate<And32B>("and", 32);
         }
         internal void CreateNands()
         {
@@ -104,6 +116,7 @@ namespace IntegratedCircuits
             Create2InputGate<Nand8B>("nand", 8);
             Create2InputGate<Nand12B>("nand", 12);
             Create2InputGate<Nand16B>("nand", 16);
+            Create2InputGate<Nand32B>("nand", 32);
         }
 
         internal void CreateXors()
@@ -113,6 +126,7 @@ namespace IntegratedCircuits
             Create2InputGate<Xor8B>("xor", 8);
             Create2InputGate<Xor12B>("xor", 12);
             Create2InputGate<Xor16B>("xor", 16);
+            Create2InputGate<Xor32B>("xor", 32);
         }
 
 
@@ -149,10 +163,10 @@ namespace IntegratedCircuits
             ComponentRegistry.CreateNew<T>("mul" + bits, "MUL " + bits + " Bit", BuilderHelper.CreateMul(bits));
         }
 
-        internal void CreateRam<T>(int bits) where T : RamBase
+        internal void CreateRam<T>(int bits) where T : UpdateHandler
         {
 
-            ComponentRegistry.CreateNew<Ram1B>("ram" + bits, "RAM " + bits + " Bit", BuilderHelper.CreateRam(bits));
+            ComponentRegistry.CreateNew<T>("ram" + bits, "RAM " + bits + " Bit", BuilderHelper.CreateRam(bits));
         }
 
         internal void Create2InputGate<T>(string name, int bits) where T : TwoInputGateBase

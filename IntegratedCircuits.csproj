@@ -52,6 +52,15 @@
   <ItemGroup>
     <Compile Include="BuilderHelper.cs" />
     <Compile Include="CommonData.cs" />
+    <Compile Include="Components\Add\Add32B.cs" />
+    <Compile Include="Components\And\And32B.cs" />
+    <Compile Include="Components\Bcd\Bcd32B.cs" />
+    <Compile Include="Components\Dcb\Dcb10D.cs" />
+    <Compile Include="Components\Dcb\Dcb9D.cs" />
+    <Compile Include="Components\Dcb\Dcb8D.cs" />
+    <Compile Include="Components\Dcb\Dcb7D.cs" />
+    <Compile Include="Components\Dcb\Dcb6D.cs" />
+    <Compile Include="Components\Div\Div32B.cs" />
     <Compile Include="Components\Float\Adder.cs" />
     <Compile Include="Components\Float\BinOp.cs" />
     <Compile Include="Components\Float\FloatToInt.cs" />
@@ -62,6 +71,11 @@
     <Compile Include="Components\Float\Multiplier.cs" />
     <Compile Include="Components\Float\Negator.cs" />
     <Compile Include="Components\Float\Subtractor.cs" />
+    <Compile Include="Components\Inc\Inc32B.cs" />
+    <Compile Include="Components\Mul\Mul32B.cs" />
+    <Compile Include="Components\Nand\Nand32B.cs" />
+    <Compile Include="Components\Ram\Ram32B.cs" />
+    <Compile Include="Components\Xor\Xor32B.cs" />
     <Compile Include="FloatCircuitLoader.cs" />
     <Compile Include="IntegerCircuitLoader.cs" />
     <Compile Include="Components\Add\Add16B.cs" />
