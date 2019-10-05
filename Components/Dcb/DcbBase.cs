@@ -18,7 +18,7 @@ namespace IntegratedCircuits.Components.Dcb
         protected override void CircuitLogicUpdate()
         {
             int val = 0;
-            for (int i = 0; i < digits; i++)
+            for (int i = digits - 1; i >= 0; i--)
             {
                 val *= 10;
                 val += Util.ReadIntFromInputs(Inputs, i * 4, i * 4 + 3);

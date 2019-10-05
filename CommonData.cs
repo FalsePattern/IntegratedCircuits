@@ -7,6 +7,6 @@ namespace IntegratedCircuits
         public const string name = "Integrated Circuits";
         public const string packageName = "falsepattern.IntegratedCircuits";
         public const string author = "FalsePattern";
-        public static readonly Version modVersion = new Version("0.3");
+        public static readonly Version modVersion = new Version("0.3.1");
     }
 }
