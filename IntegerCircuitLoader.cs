@@ -5,6 +5,7 @@ using IntegratedCircuits.Components.Bcd;
 using IntegratedCircuits.Components.Dcb;
 using IntegratedCircuits.Components.Div;
 using IntegratedCircuits.Components.Inc;
+using IntegratedCircuits.Components.Matrix;
 using IntegratedCircuits.Components.Mul;
 using IntegratedCircuits.Components.Nand;
 using IntegratedCircuits.Components.Ram;
@@ -26,6 +27,7 @@ namespace IntegratedCircuits
             CreateDivs();
             CreateIncs();
             CreateMuls();
+            CreateMatrices();
             CreateNands();
             CreateRams();
             CreateXors();
@@ -80,6 +82,14 @@ namespace IntegratedCircuits
             CreateMul<Mul32B>(32);
         }
 
+        internal void CreateMatrices()
+        {
+            CreateMatrix<Matrix4>(4, 2);
+            CreateMatrix<Matrix8>(8, 3);
+            CreateMatrix<Matrix16>(16, 4);
+            CreateMatrix<Matrix32>(32, 5);
+        }
+        
         internal void CreateIncs()
         {
             CreateInc<Inc1B>(1);
@@ -156,6 +166,11 @@ namespace IntegratedCircuits
         {
 
             ComponentRegistry.CreateNew<T>("inc" + bits, "INC " + bits + " Bit", BuilderHelper.CreateInc(bits));
+        }
+
+        internal void CreateMatrix<T>(int rows, int columnBits) where T : MatrixBase
+        {
+            ComponentRegistry.CreateNew<T>("matrix" + rows + "x" + (1 << columnBits), "MATRIX " + rows + "X" + (1 << columnBits), BuilderHelper.CreateMatrix(rows, columnBits));
         }
 
         internal void CreateMul<T>(int bits) where T : MulBase

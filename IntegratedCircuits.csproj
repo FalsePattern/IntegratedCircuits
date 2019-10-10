@@ -72,6 +72,11 @@
     <Compile Include="Components\Float\Negator.cs" />
     <Compile Include="Components\Float\Subtractor.cs" />
     <Compile Include="Components\Inc\Inc32B.cs" />
+    <Compile Include="Components\Matrix\Matrix4.cs" />
+    <Compile Include="Components\Matrix\Matrix16.cs" />
+    <Compile Include="Components\Matrix\Matrix32.cs" />
+    <Compile Include="Components\Matrix\Matrix8.cs" />
+    <Compile Include="Components\Matrix\MatrixBase.cs" />
     <Compile Include="Components\Mul\Mul32B.cs" />
     <Compile Include="Components\Nand\Nand32B.cs" />
     <Compile Include="Components\Ram\Ram32B.cs" />
