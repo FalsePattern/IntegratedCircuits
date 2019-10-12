@@ -168,9 +168,9 @@ namespace IntegratedCircuits
             ComponentRegistry.CreateNew<T>("inc" + bits, "INC " + bits + " Bit", BuilderHelper.CreateInc(bits));
         }
 
-        internal void CreateMatrix<T>(int rows, int columnBits) where T : MatrixBase
+        internal void CreateMatrix<T>(int columns, int rowBits) where T : MatrixBase
         {
-            ComponentRegistry.CreateNew<T>("matrix" + rows + "x" + (1 << columnBits), "MATRIX " + rows + "X" + (1 << columnBits), BuilderHelper.CreateMatrix(rows, columnBits));
+            ComponentRegistry.CreateNew<T>("matrix" + columns + "x" + (1 << rowBits), "MATRIX " + columns + "X" + (1 << rowBits), BuilderHelper.CreateMatrix(columns, rowBits));
         }
 
         internal void CreateMul<T>(int bits) where T : MulBase

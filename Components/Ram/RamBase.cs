@@ -7,6 +7,9 @@ namespace IntegratedCircuits.Components.Ram
         [SaveThis]
         public int[] content;
 
+        [SaveThis]
+        public bool prevWrite;
+
         private int bits;
         public RamBase(int bits)
         {
@@ -22,10 +25,11 @@ namespace IntegratedCircuits.Components.Ram
             int address = Util.ReadIntFromInputs(Inputs, 0, bits - 1);
             int value = Util.ReadIntFromInputs(Inputs, bits + 1, bits * 2);
             bool write = Inputs[bits].On;
-            if (write)
+            if (write && !prevWrite)
             {
                 content[address] = value;
             }
+            prevWrite = write;
             Util.WriteIntToOutputs(Outputs, 0, bits - 1, content[address]);
         }
     }

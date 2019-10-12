@@ -7,6 +7,8 @@ namespace IntegratedCircuits.Components.Ram
         [SaveThis]
         public int[] content;
 
+        [SaveThis]
+        public bool prevWrite;
         public Ram32B()
         {
             if (content == null)
@@ -20,10 +22,11 @@ namespace IntegratedCircuits.Components.Ram
             int address = Util.ReadIntFromInputs(Inputs, 0, 23);
             int value = Util.ReadIntFromInputs(Inputs, 25, 56);
             bool write = Inputs[24].On;
-            if (write)
+            if (write && !prevWrite)
             {
                 content[address] = value;
             }
+            prevWrite = write;
             Util.WriteIntToOutputs(Outputs, 0, 31, content[address]);
         }
     }
