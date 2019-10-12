@@ -37,13 +37,11 @@ namespace IntegratedCircuits.Components.Matrix
 
         private void ProcessRamMode()
         {
-
-            int value = Util.ReadIntFromInputs(Inputs, 0, rows - 1);
             int address = Util.ReadIntFromInputs(Inputs, rows + 1, rows + bits);
             bool write = Inputs[columns].On;
             if (write && !prevWrite)
             {
-                content[address] = value;
+                content[address] = Util.ReadIntFromInputs(Inputs, 0, rows - 1);
             }
             prevWrite = write;
             Util.WriteIntToOutputs(Outputs, 0, columns - 1, content[address]);

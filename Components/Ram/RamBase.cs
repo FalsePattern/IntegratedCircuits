@@ -23,11 +23,10 @@ namespace IntegratedCircuits.Components.Ram
         protected override void CircuitLogicUpdate()
         {
             int address = Util.ReadIntFromInputs(Inputs, 0, bits - 1);
-            int value = Util.ReadIntFromInputs(Inputs, bits + 1, bits * 2);
             bool write = Inputs[bits].On;
             if (write && !prevWrite)
             {
-                content[address] = value;
+                content[address] = Util.ReadIntFromInputs(Inputs, bits + 1, bits * 2);
             }
             prevWrite = write;
             Util.WriteIntToOutputs(Outputs, 0, bits - 1, content[address]);
