@@ -80,6 +80,13 @@
     <Compile Include="Components\Mul\Mul32B.cs" />
     <Compile Include="Components\Nand\Nand32B.cs" />
     <Compile Include="Components\Ram\Ram32B.cs" />
+    <Compile Include="Components\Reg\Reg32B.cs" />
+    <Compile Include="Components\Reg\Reg16B.cs" />
+    <Compile Include="Components\Reg\Reg8B.cs" />
+    <Compile Include="Components\Reg\Reg4B.cs" />
+    <Compile Include="Components\Reg\Reg2B.cs" />
+    <Compile Include="Components\Reg\Reg1B.cs" />
+    <Compile Include="Components\Reg\RegBase.cs" />
     <Compile Include="Components\Xor\Xor32B.cs" />
     <Compile Include="FloatCircuitLoader.cs" />
     <Compile Include="IntegerCircuitLoader.cs" />

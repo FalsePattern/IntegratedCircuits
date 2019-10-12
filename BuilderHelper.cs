@@ -13,6 +13,11 @@ namespace IntegratedCircuits
             return CreateMultiIOChip(bits, 1, bits, bits, false, false, true, false, "A", "Write", "O", "D", false, true, false, false);
         }
 
+        public static CustomBuilder CreateReg(int bits)
+        {
+            return CreateMultiIOChip(0, 1, bits, bits, false, false, true, false, "", "Write", "O", "D", false, true, false, false);
+        }
+
         public static CustomBuilder Create1To1(int bits)
         {
             return CreateMultiIOChip(0, 0, bits, bits, false, false, true, false, "", "", "O", "I", false, false, false, false);
