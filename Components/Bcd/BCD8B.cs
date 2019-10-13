@@ -1,6 +1,4 @@
-﻿using PiTung.Components;
-
-namespace IntegratedCircuits.Components.Bcd
+﻿namespace IntegratedCircuits.Components.Bcd
 {
     class Bcd8B : BcdBase
     {
