@@ -11,6 +11,7 @@ using IntegratedCircuits.Components.Mul;
 using IntegratedCircuits.Components.Nand;
 using IntegratedCircuits.Components.Ram;
 using IntegratedCircuits.Components.Reg;
+using IntegratedCircuits.Components.Rng;
 using IntegratedCircuits.Components.Xor;
 using PiTung.Components;
 
@@ -34,6 +35,7 @@ namespace IntegratedCircuits
             CreateNands();
             CreateRams();
             CreateRegs();
+            CreateRngs();
             CreateXors();
         }
         internal void CreateAdds()
@@ -133,6 +135,15 @@ namespace IntegratedCircuits
             CreateReg<Reg32B>(32);
         }
 
+        internal void CreateRngs()
+        {
+            CreateRng<Rng4B>(4);
+            CreateRng<Rng8B>(8);
+            CreateRng<Rng12B>(12);
+            CreateRng<Rng16B>(16);
+            CreateRng<Rng32B>(32);
+        }
+
         internal void CreateAnds()
         {
             Create2InputGate<And1B>("and", 1);
@@ -215,6 +226,11 @@ namespace IntegratedCircuits
         internal void CreateReg<T>(int bits) where T : RegBase
         {
             ComponentRegistry.CreateNew<T>("reg" + bits, "REG " + bits + " Bit", BuilderHelper.CreateReg(bits));
+        }
+
+        internal void CreateRng<T>(int bits) where T : RngBase
+        {
+            ComponentRegistry.CreateNew<T>("rng" + bits, "RNG " + bits + " Bit", BuilderHelper.CreateRng(bits));
         }
 
         internal void Create2InputGate<T>(string name, int bits) where T : TwoInputGateBase

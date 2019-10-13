@@ -67,6 +67,11 @@ namespace IntegratedCircuits
             return CreateMatrixIOChip(rows, 1, columnBits, rows, 1 << columnBits, rows, false, false, false, true, true, "D", "Write", "A", "D", "D", false, true, false, false);
         }
 
+        public static CustomBuilder CreateRng(int bits)
+        {
+            return CreateMultiIOChip(0, 0, bits, 1, false, false, true, false, "", "", "O", "CLK", false, false, false, true);
+        }
+
         private static string[] createPrefixArray(string prefix, int length)
         {
             var result = new string[length];

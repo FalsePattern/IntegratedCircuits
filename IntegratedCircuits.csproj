@@ -93,6 +93,12 @@
     <Compile Include="Components\Reg\Reg2B.cs" />
     <Compile Include="Components\Reg\Reg1B.cs" />
     <Compile Include="Components\Reg\RegBase.cs" />
+    <Compile Include="Components\Rng\Rng16B.cs" />
+    <Compile Include="Components\Rng\Rng32B.cs" />
+    <Compile Include="Components\Rng\Rng12B.cs" />
+    <Compile Include="Components\Rng\Rng8B.cs" />
+    <Compile Include="Components\Rng\Rng4B.cs" />
+    <Compile Include="Components\Rng\RngBase.cs" />
     <Compile Include="Components\Xor\Xor32B.cs" />
     <Compile Include="FloatCircuitLoader.cs" />
     <Compile Include="IntegerCircuitLoader.cs" />
