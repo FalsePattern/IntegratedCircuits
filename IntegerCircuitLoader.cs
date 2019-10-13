@@ -2,6 +2,7 @@
 using IntegratedCircuits.Components.Add;
 using IntegratedCircuits.Components.And;
 using IntegratedCircuits.Components.Bcd;
+using IntegratedCircuits.Components.Cmp;
 using IntegratedCircuits.Components.Dcb;
 using IntegratedCircuits.Components.Div;
 using IntegratedCircuits.Components.Inc;
@@ -24,6 +25,7 @@ namespace IntegratedCircuits
             CreateAdds();
             CreateAnds();
             CreateBcds();
+            CreateCmps();
             CreateDcbs();
             CreateDivs();
             CreateIncs();
@@ -51,6 +53,15 @@ namespace IntegratedCircuits
             CreateBcd<Bcd12B>(12, 4);
             CreateBcd<Bcd16B>(16, 5);
             CreateBcd<Bcd32B>(32, 10);
+        }
+
+        internal void CreateCmps()
+        {
+            CreateCmp<Cmp4B>(4);
+            CreateCmp<Cmp8B>(8);
+            CreateCmp<Cmp12B>(12);
+            CreateCmp<Cmp16B>(16);
+            CreateCmp<Cmp32B>(32);
         }
 
         internal void CreateDcbs()
@@ -161,6 +172,11 @@ namespace IntegratedCircuits
         {
 
             ComponentRegistry.CreateNew<T>("bcd" + bits, "BIN to BCD " + bits + " Bit", BuilderHelper.CreateBcd(bits, digits));
+        }
+
+        internal void CreateCmp<T>(int bits) where T : CmpBase
+        {
+            ComponentRegistry.CreateNew<T>("cmp" + bits, "CMP " + bits + " Bit", BuilderHelper.CreateCmp(bits));
         }
 
         internal void CreateDcb<T>(int digits, int bits) where T : DcbBase

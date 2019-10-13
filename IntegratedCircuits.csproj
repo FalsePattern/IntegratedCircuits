@@ -55,6 +55,12 @@
     <Compile Include="Components\Add\Add32B.cs" />
     <Compile Include="Components\And\And32B.cs" />
     <Compile Include="Components\Bcd\Bcd32B.cs" />
+    <Compile Include="Components\Cmp\Cmp32B.cs" />
+    <Compile Include="Components\Cmp\Cmp16B.cs" />
+    <Compile Include="Components\Cmp\Cmp12B.cs" />
+    <Compile Include="Components\Cmp\Cmp4B.cs" />
+    <Compile Include="Components\Cmp\Cmp8B.cs" />
+    <Compile Include="Components\Cmp\CmpBase.cs" />
     <Compile Include="Components\Dcb\Dcb10D.cs" />
     <Compile Include="Components\Dcb\Dcb9D.cs" />
     <Compile Include="Components\Dcb\Dcb8D.cs" />

@@ -37,7 +37,11 @@ namespace IntegratedCircuits
         {
             return CreateMultiIOChip(0, 0, digits * 4, bits, false, false, true, false, "", "", "BCD", "BIN", false, false, false, false);
         }
-
+        public static CustomBuilder CreateCmp(int bits)
+        {
+            var builder = CreateMultiIOChip(bits, bits, 3, 0, false, false, true, false, createPrefixArray("A", bits), createPrefixArray("B", bits), new string[] { "A > B", "A == B", "A < B" }, null, false, false, true, false);
+            return builder;
+        }
         public static CustomBuilder CreateDcb(int digits, int bits)
         {
             return CreateMultiIOChip(0, 0, bits, digits * 4, false, false, true, false, "", "", "BIN", "BCD", false, false, false, false);
@@ -63,11 +67,36 @@ namespace IntegratedCircuits
             return CreateMatrixIOChip(rows, 1, columnBits, rows, 1 << columnBits, rows, false, false, false, true, true, "D", "Write", "A", "D", "D", false, true, false, false);
         }
 
+        private static string[] createPrefixArray(string prefix, int length)
+        {
+            var result = new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                result[i] = prefix;
+            }
+            return result;
+        }
+
         public static CustomBuilder CreateMultiIOChip(
             int leftIO, int rightIO, int frontIO, int backIO,
             bool leftOutput, bool rightOutput, bool frontOutput, bool backOutput,
             string leftPrefix, string rightPrefix, string frontPrefix, string backPrefix,
             bool leftPrefixOnly, bool rightPrefixOnly, bool frontPrefixOnly, bool backPrefixOnly)
+        {
+            int length = Math.Max(1, Math.Max(leftIO, rightIO));
+            int width = Math.Max(1, Math.Max(frontIO, backIO));
+            var builder = PrefabBuilder.Custom(() => createObject(width, length));
+            generatePegs(builder, new Vector3(1, 0, 0), leftPrefix, leftPrefixOnly, 0, baseSize / 2, -baseSize, (leftIO - length) * baseSize, leftIO, false, leftOutput);
+            generatePegs(builder, new Vector3(-1, 0, 0), rightPrefix, rightPrefixOnly, 0, -width * baseSize + (baseSize / 2), -baseSize, (rightIO - length) * baseSize, rightIO, true, rightOutput);
+            generatePegs(builder, new Vector3(0, 0, -1), frontPrefix, frontPrefixOnly, -baseSize, (frontIO - width) * baseSize, 0, -length * baseSize + (baseSize / 2), frontIO, true, frontOutput);
+            generatePegs(builder, new Vector3(0, 0, 1), backPrefix, backPrefixOnly, -baseSize, (backIO - width) * baseSize, 0, baseSize / 2, backIO, true, backOutput);
+            return builder;
+        }
+        public static CustomBuilder CreateMultiIOChip(
+           int leftIO, int rightIO, int frontIO, int backIO,
+           bool leftOutput, bool rightOutput, bool frontOutput, bool backOutput,
+           string[] leftPrefix, string[] rightPrefix, string[] frontPrefix, string[] backPrefix,
+           bool leftPrefixOnly, bool rightPrefixOnly, bool frontPrefixOnly, bool backPrefixOnly)
         {
             int length = Math.Max(1, Math.Max(leftIO, rightIO));
             int width = Math.Max(1, Math.Max(frontIO, backIO));
@@ -101,6 +130,7 @@ namespace IntegratedCircuits
             yOffset -= baseSize / 2;
             return builder;
         }
+
         private static float yOffset = 0.15f;
         private static void generatePegs(CustomBuilder builder, Vector3 facing, string namePrefix, bool prefixOnly, float xMultiplier, float xConstant, float zMultiplier, float zConstant, int pinCount, bool reversed, bool output)
         {
@@ -116,6 +146,27 @@ namespace IntegratedCircuits
                 {
                     builder.WithOutput(pos, rotation, name);
                 } else
+                {
+                    builder.WithInput(pos, rotation, name);
+                }
+            }
+        }
+        private static void generatePegs(CustomBuilder builder, Vector3 facing, string[] namePrefixes, bool prefixOnly, float xMultiplier, float xConstant, float zMultiplier, float zConstant, int pinCount, bool reversed, bool output)
+        {
+            var rotation = Quaternion.FromToRotation(new Vector3(0, 1, 0), facing);
+            int start = reversed ? pinCount - 1 : 0;
+            int end = reversed ? -1 : pinCount;
+            int step = reversed ? -1 : 1;
+            for (int i = start; i != end; i += step)
+            {
+                var namePrefix = namePrefixes[i];
+                var pos = new Vector3(xMultiplier * i + xConstant, yOffset, zMultiplier * i + zConstant);
+                var name = prefixOnly ? namePrefix : namePrefix + (reversed ? (pinCount - i - 1) : i).ToString();
+                if (output)
+                {
+                    builder.WithOutput(pos, rotation, name);
+                }
+                else
                 {
                     builder.WithInput(pos, rotation, name);
                 }
