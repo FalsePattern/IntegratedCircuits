@@ -166,7 +166,7 @@ namespace IntegratedCircuits
             CreateRam<Ram8B>(8);
             CreateRam<Ram12B>(12);
             CreateRam<Ram16B>(16);
-            CreateRam<Ram32B>(32);
+            ComponentRegistry.CreateNew<Ram32B>("ram32b", "RAM 32 Bit", BuilderHelper.CreateMultiIOChip(24, 1, 32, 32, false, false, true, false, "A", "Write", "O", "D", false, true, false, false));
         }
 
         internal void CreateRegs()
