@@ -52,6 +52,16 @@ namespace IntegratedCircuits
             return CreateMultiIOChip(bits, bits, bits, 1, false, false, true, true, "A", "B", "O", "DivByZero", false, false, false, true);
         }
 
+        public static CustomBuilder CreateDMuxC(int channels, int selectorBits)
+        {
+            return CreateMultiIOChip(selectorBits, 0, channels, 1, false, false, true, false, "S", "", "O", "I", false, false, false, true);
+        }
+
+        public static CustomBuilder CreateDMuxB(int bits)
+        {
+            return CreateMultiIOChip(bits, bits, 1, bits, true, true, false, false, "A", "B", "S", "I", false, false, true, false);
+        }
+
         public static CustomBuilder CreateInc(int bits)
         {
             return CreateMultiIOChip(0, 1, bits + 1, bits, false, false, true, false, "", "DEC", "O", "I", false, true, false, false);
@@ -60,6 +70,16 @@ namespace IntegratedCircuits
         public static CustomBuilder CreateMul(int bits)
         {
             return CreateMultiIOChip(bits, bits, bits * 2, 0, false, false, true, false, "A", "B", "O", "", false, false, false, false);
+        }
+
+        public static CustomBuilder CreateMuxC(int channels, int selectorBits)
+        {
+            return CreateMultiIOChip(selectorBits, 0, 1, channels, false, false, true, false, "S", "", "O", "I", false, false, true, false);
+        }
+
+        public static CustomBuilder CreateMuxB(int bits)
+        {
+            return CreateMultiIOChip(bits, bits, bits, 1, false, false, true, false, "A", "B", "O", "S", false, false, false, true);
         }
 
         public static CustomBuilder CreateMatrix(int rows, int columnBits)

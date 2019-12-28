@@ -67,6 +67,18 @@
     <Compile Include="Components\Dcb\Dcb7D.cs" />
     <Compile Include="Components\Dcb\Dcb6D.cs" />
     <Compile Include="Components\Div\Div32B.cs" />
+    <Compile Include="Components\Dmuxb\DMuxB16.cs" />
+    <Compile Include="Components\Dmuxb\DMuxB32.cs" />
+    <Compile Include="Components\Dmuxb\DMuxB12.cs" />
+    <Compile Include="Components\Dmuxb\DMuxB8.cs" />
+    <Compile Include="Components\Dmuxb\DMuxB4.cs" />
+    <Compile Include="Components\Dmuxb\DMuxBBase.cs" />
+    <Compile Include="Components\DMuxc\DMuxC32.cs" />
+    <Compile Include="Components\DMuxc\DMuxC16.cs" />
+    <Compile Include="Components\DMuxc\DMuxC8.cs" />
+    <Compile Include="Components\DMuxc\DMuxC4.cs" />
+    <Compile Include="Components\DMuxc\DMuxC2.cs" />
+    <Compile Include="Components\DMuxc\DMuxCBase.cs" />
     <Compile Include="Components\Float\Adder.cs" />
     <Compile Include="Components\Float\BinOp.cs" />
     <Compile Include="Components\Float\FloatToInt.cs" />
@@ -84,6 +96,18 @@
     <Compile Include="Components\Matrix\Matrix8.cs" />
     <Compile Include="Components\Matrix\MatrixBase.cs" />
     <Compile Include="Components\Mul\Mul32B.cs" />
+    <Compile Include="Components\Muxb\MuxB16.cs" />
+    <Compile Include="Components\Muxb\MuxB32.cs" />
+    <Compile Include="Components\Muxb\MuxB12.cs" />
+    <Compile Include="Components\Muxb\MuxB8.cs" />
+    <Compile Include="Components\Muxb\MuxB4.cs" />
+    <Compile Include="Components\Muxb\MuxBBase.cs" />
+    <Compile Include="Components\Muxc\MuxC32.cs" />
+    <Compile Include="Components\Muxc\MuxC16.cs" />
+    <Compile Include="Components\Muxc\MuxC8.cs" />
+    <Compile Include="Components\Muxc\MuxC4.cs" />
+    <Compile Include="Components\Muxc\MuxC2.cs" />
+    <Compile Include="Components\Muxc\MuxCBase.cs" />
     <Compile Include="Components\Nand\Nand32B.cs" />
     <Compile Include="Components\Ram\Ram32B.cs" />
     <Compile Include="Components\Reg\Reg32B.cs" />
@@ -163,5 +187,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

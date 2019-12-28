@@ -5,9 +5,13 @@ using IntegratedCircuits.Components.Bcd;
 using IntegratedCircuits.Components.Cmp;
 using IntegratedCircuits.Components.Dcb;
 using IntegratedCircuits.Components.Div;
+using IntegratedCircuits.Components.Dmuxb;
+using IntegratedCircuits.Components.DMuxc;
 using IntegratedCircuits.Components.Inc;
 using IntegratedCircuits.Components.Matrix;
 using IntegratedCircuits.Components.Mul;
+using IntegratedCircuits.Components.Muxb;
+using IntegratedCircuits.Components.Muxc;
 using IntegratedCircuits.Components.Nand;
 using IntegratedCircuits.Components.Ram;
 using IntegratedCircuits.Components.Reg;
@@ -29,8 +33,12 @@ namespace IntegratedCircuits
             CreateCmps();
             CreateDcbs();
             CreateDivs();
+            CreateDMuxBs();
+            CreateDMuxCs();
             CreateIncs();
             CreateMuls();
+            CreateMuxBs();
+            CreateMuxCs();
             CreateMatrices();
             CreateNands();
             CreateRams();
@@ -88,6 +96,24 @@ namespace IntegratedCircuits
             CreateDiv<Div32B>(32);
         }
 
+        internal void CreateDMuxBs()
+        {
+            CreateDMuxB<DMuxB4>(4);
+            CreateDMuxB<DMuxB8>(8);
+            CreateDMuxB<DMuxB12>(12);
+            CreateDMuxB<DMuxB16>(16);
+            CreateDMuxB<DMuxB32>(32);
+        }
+
+        internal void CreateDMuxCs()
+        {
+            CreateDMuxC<DMuxC2>(2, 1);
+            CreateDMuxC<DMuxC4>(4, 2);
+            CreateDMuxC<DMuxC8>(8, 3);
+            CreateDMuxC<DMuxC16>(16, 4);
+            CreateDMuxC<DMuxC32>(32, 5);
+        }
+
         internal void CreateMuls()
         {
             CreateMul<Mul4B>(4);
@@ -95,6 +121,24 @@ namespace IntegratedCircuits
             CreateMul<Mul12B>(12);
             CreateMul<Mul16B>(16);
             CreateMul<Mul32B>(32);
+        }
+
+        internal void CreateMuxCs()
+        {
+            CreateMuxC<MuxC2>(2, 1);
+            CreateMuxC<MuxC4>(4, 2);
+            CreateMuxC<MuxC8>(8, 3);
+            CreateMuxC<MuxC16>(16, 4);
+            CreateMuxC<MuxC32>(32, 5);
+        }
+
+        internal void CreateMuxBs()
+        {
+            CreateMuxB<MuxB4>(4);
+            CreateMuxB<MuxB8>(8);
+            CreateMuxB<MuxB12>(12);
+            CreateMuxB<MuxB16>(16);
+            CreateMuxB<MuxB32>(32);
         }
 
         internal void CreateMatrices()
@@ -201,6 +245,16 @@ namespace IntegratedCircuits
             ComponentRegistry.CreateNew<T>("div" + bits, "DIV " + bits + " Bit", BuilderHelper.CreateDiv(bits));
         }
 
+        internal void CreateDMuxB<T>(int bits) where T : DMuxBBase
+        {
+            ComponentRegistry.CreateNew<T>("dmuxb" + bits, "DMUXB" + bits, BuilderHelper.CreateDMuxB(bits));
+        }
+
+        internal void CreateDMuxC<T>(int channels, int selectorBits) where T : DMuxCBase
+        {
+            ComponentRegistry.CreateNew<T>("dmuxc" + channels, "DMUXC" + channels, BuilderHelper.CreateDMuxC(channels, selectorBits));
+        }
+
         internal void CreateInc<T>(int bits) where T : IncBase
         {
 
@@ -215,6 +269,16 @@ namespace IntegratedCircuits
         internal void CreateMul<T>(int bits) where T : MulBase
         {
             ComponentRegistry.CreateNew<T>("mul" + bits, "MUL " + bits + " Bit", BuilderHelper.CreateMul(bits));
+        }
+
+        internal void CreateMuxC<T>(int channels, int selectorBits) where T : MuxCBase
+        {
+            ComponentRegistry.CreateNew<T>("muxc" + channels, "MUXC" + channels, BuilderHelper.CreateMuxC(channels, selectorBits));
+        }
+
+        internal void CreateMuxB<T>(int bits) where T : MuxBBase
+        {
+            ComponentRegistry.CreateNew<T>("muxb" + bits, "MUXB" + bits, BuilderHelper.CreateMuxB(bits));
         }
 
         internal void CreateRam<T>(int bits) where T : UpdateHandler
