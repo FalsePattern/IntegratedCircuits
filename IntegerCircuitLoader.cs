@@ -190,6 +190,7 @@ namespace IntegratedCircuits
 
         internal void CreateAnds()
         {
+            CreateTopInputGate<And1B>("and");
             Create2InputGate<And1B>("and", 1);
             Create2InputGate<And4B>("and", 4);
             Create2InputGate<And8B>("and", 8);
@@ -199,6 +200,7 @@ namespace IntegratedCircuits
         }
         internal void CreateNands()
         {
+            CreateTopInputGate<Nand1B>("nand");
             Create2InputGate<Nand1B>("nand", 1);
             Create2InputGate<Nand4B>("nand", 4);
             Create2InputGate<Nand8B>("nand", 8);
@@ -209,6 +211,7 @@ namespace IntegratedCircuits
 
         internal void CreateXors()
         {
+            CreateTopInputGate<Xor1B>("xor");
             Create2InputGate<Xor1B>("xor", 1);
             Create2InputGate<Xor4B>("xor", 4);
             Create2InputGate<Xor8B>("xor", 8);
@@ -300,6 +303,11 @@ namespace IntegratedCircuits
         internal void Create2InputGate<T>(string name, int bits) where T : TwoInputGateBase
         {
             ComponentRegistry.CreateNew<T>(name + bits, name.ToUpper() + " " + bits + " Bit", BuilderHelper.Create2To1(bits));
+        }
+
+        internal void CreateTopInputGate<T>(string name) where T : TwoInputGateBase
+        {
+            ComponentRegistry.CreateNew<T>(name + "1t", name.ToUpper() + " 1 Bit Top", BuilderHelper.CreateTopInputGate());
         }
     }
 

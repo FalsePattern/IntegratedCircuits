@@ -92,6 +92,11 @@ namespace IntegratedCircuits
             return CreateMultiIOChip(0, 0, bits, 1, false, false, true, false, "", "", "O", "CLK", false, false, false, true);
         }
 
+        public static CustomBuilder CreateTopInputGate()
+        {
+            return CreateMatrixIOChip(0, 0, 1, 1, 1, 1, false, false, true, false, false, "", "", "O", "A", "B", false, false, true, true);
+        }
+
         private static string[] createPrefixArray(string prefix, int length)
         {
             var result = new string[length];
