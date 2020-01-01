@@ -11,8 +11,8 @@ namespace IntegratedCircuits.Components.Mul
         }
         protected override void CircuitLogicUpdate()
         {
-            int a = Util.ReadIntFromInputs(Inputs, 0, bits - 1);
-            int b = Util.ReadIntFromInputs(Inputs, bits, bits + bits - 1);
+            long a = Util.ReadLongFromInputs(Inputs, 0, bits - 1);
+            long b = Util.ReadLongFromInputs(Inputs, bits, bits + bits - 1);
             long result = a * b;
             Util.WriteLongToOutputs(Outputs, 0, bits * 2 - 1, result);
         }

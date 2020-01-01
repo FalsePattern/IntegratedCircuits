@@ -123,6 +123,16 @@
     <Compile Include="Components\Rng\Rng8B.cs" />
     <Compile Include="Components\Rng\Rng4B.cs" />
     <Compile Include="Components\Rng\RngBase.cs" />
+    <Compile Include="Components\Rotate\Rotate32B.cs" />
+    <Compile Include="Components\Rotate\Rotate16B.cs" />
+    <Compile Include="Components\Rotate\Rotate8B.cs" />
+    <Compile Include="Components\Rotate\Rotate4B.cs" />
+    <Compile Include="Components\Rotate\RotateBase.cs" />
+    <Compile Include="Components\Shift\Shift32B.cs" />
+    <Compile Include="Components\Shift\Shift16B.cs" />
+    <Compile Include="Components\Shift\Shift4B.cs" />
+    <Compile Include="Components\Shift\Shift8B.cs" />
+    <Compile Include="Components\Shift\ShiftBase.cs" />
     <Compile Include="Components\Xor\Xor32B.cs" />
     <Compile Include="FloatCircuitLoader.cs" />
     <Compile Include="IntegerCircuitLoader.cs" />

@@ -92,6 +92,11 @@ namespace IntegratedCircuits
             return CreateMultiIOChip(0, 0, bits, 1, false, false, true, false, "", "", "O", "CLK", false, false, false, true);
         }
 
+        public static CustomBuilder CreateShiftLike(int bits, int shiftBits)
+        {
+            return CreateMultiIOChip(shiftBits, 1, bits, bits, false, false, true, false, "A", "Right", "O", "I", false, true, false, false);
+        }
+
         public static CustomBuilder CreateTopInputGate()
         {
             return CreateMatrixIOChip(0, 0, 1, 1, 1, 1, false, false, true, false, false, "", "", "O", "A", "B", false, false, true, true);

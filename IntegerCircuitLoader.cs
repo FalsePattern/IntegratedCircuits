@@ -16,6 +16,8 @@ using IntegratedCircuits.Components.Nand;
 using IntegratedCircuits.Components.Ram;
 using IntegratedCircuits.Components.Reg;
 using IntegratedCircuits.Components.Rng;
+using IntegratedCircuits.Components.Rotate;
+using IntegratedCircuits.Components.Shift;
 using IntegratedCircuits.Components.Xor;
 using PiTung.Components;
 
@@ -44,6 +46,8 @@ namespace IntegratedCircuits
             CreateRams();
             CreateRegs();
             CreateRngs();
+            CreateRotates();
+            CreateShifts();
             CreateXors();
         }
         internal void CreateAdds()
@@ -188,6 +192,22 @@ namespace IntegratedCircuits
             CreateRng<Rng32B>(32);
         }
 
+        internal void CreateRotates()
+        {
+            CreateRotate<Rotate4B>(4, 2);
+            CreateRotate<Rotate8B>(8, 3);
+            CreateRotate<Rotate16B>(16, 4);
+            CreateRotate<Rotate32B>(32, 5);
+        }
+
+        internal void CreateShifts()
+        {
+            CreateShift<Shift4B>(4, 2);
+            CreateShift<Shift8B>(8, 3);
+            CreateShift<Shift16B>(16, 4);
+            CreateShift<Shift32B>(32, 5);
+        }
+
         internal void CreateAnds()
         {
             CreateTopInputGate<And1B>("and");
@@ -298,6 +318,16 @@ namespace IntegratedCircuits
         internal void CreateRng<T>(int bits) where T : RngBase
         {
             ComponentRegistry.CreateNew<T>("rng" + bits, "RNG " + bits + " Bit", BuilderHelper.CreateRng(bits));
+        }
+
+        internal void CreateRotate<T>(int bits, int shiftBits) where T : RotateBase
+        {
+            ComponentRegistry.CreateNew<T>("rotate" + bits, "ROTATE " + bits + " Bit", BuilderHelper.CreateShiftLike(bits, shiftBits));
+        }
+
+        internal void CreateShift<T>(int bits, int shiftBits) where T : ShiftBase
+        {
+            ComponentRegistry.CreateNew<T>("shift" + bits, "SHIFT " + bits + " Bit", BuilderHelper.CreateShiftLike(bits, shiftBits));
         }
 
         internal void Create2InputGate<T>(string name, int bits) where T : TwoInputGateBase
