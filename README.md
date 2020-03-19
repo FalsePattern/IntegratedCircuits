@@ -1,3 +1,6 @@
+# IMPORTANT NOTICE
+Further support of this mod for TUNG has been permanently cancelled. Once [Logic World](https://logicworld.net) releases, this mod will be ported to it under the new name [**CompactLogic**](https://github.com/FalsePattern/CompactLogic).
+
 # IntegratedCircuits
 Premade logic, arithmetic and memory components for TUNG
 
